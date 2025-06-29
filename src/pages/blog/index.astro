@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
-
+import Body from '../../components/Body.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
@@ -86,7 +86,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 		</style>
 	</head>
-	<body>
+	<Body>
 		<Header />
 		<main>
 			<section>
@@ -110,5 +110,5 @@ const posts = (await getCollection('blog')).sort(
 			</section>
 		</main>
 		<Footer />
-	</body>
+	</Body>
 </html>
