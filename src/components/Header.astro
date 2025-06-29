@@ -5,17 +5,17 @@ import { IoLogoGithub } from "react-icons/io5";
 import ThemeToggle from "./ThemeToggleButton";
 ---
 
-<header class="fixed w-full item-center p-2 z-20 backdrop-blur-md">
-  <div class="mx-auto max-w-full">
+<header class="fixed w-full item-center p-2 z-40 backdrop-brightness-75 dark:backdrop-blur-md text-white">
+  <div class="mx-auto max-w-3xl">
     <nav class="flex items-center gap-12 text-base">
-      <h2 class="font-semibold tracking-tighter p-2 text-lg">
+      <h2 class="font-semibold tracking-tighter p-2 text-lg font-mplus">
         <a href="/">{SITE_TITLE}</a>
       </h2>
       <div class="items-center gap-6 hidden md:flex">
         <HeaderLink href="/">Home</HeaderLink>
         <HeaderLink href="/blog">Blog</HeaderLink>
         <HeaderLink href="/about">About</HeaderLink>
-        <HeaderLink href="#" target="_blank">
+        <HeaderLink href="https://github.com/paragmhrjn" target="_blank">
           <IoLogoGithub />Source</HeaderLink
         >
       </div>
