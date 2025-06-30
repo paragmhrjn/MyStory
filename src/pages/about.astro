@@ -1,17 +1,16 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import { SITE_DESCRIPTION } from '../consts';
+import Layout from "../layouts/BlogPost.astro";
+import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
+import { SITE_DESCRIPTION } from "../consts";
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+  title="About Me"
+  description="This blog is my personal corner of the internet"
+  pubDate={new Date("August 08 2021")}
+  heroImage={AboutHeroImage}
 >
-	<p>
-		{SITE_DESCRIPTION}
-	</p>
-	
+  <p class="text-justify">
+    {SITE_DESCRIPTION}
+  </p>
 </Layout>

@@ -56,11 +56,11 @@ console.log(posts);
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
               posts.map((post) => (
-                <li class="text-center mb-4">
+                <li class="text-center mb-4 hover:scale-97 transition-all hover:shadow-lg">
                   <a href={post.url}>
                     {post.data.heroImage && (
                       <Image
-                        class="border"
+                        class="border border-slate-300 rounded-xl dark:border-zinc-700"
                         src={post.data.heroImage}
                         width={720}
                         height={720 / 1.777}
