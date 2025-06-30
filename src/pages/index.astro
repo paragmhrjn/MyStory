@@ -5,8 +5,28 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Body from "../components/Body.astro";
 import Content from "../components/Content.astro";
-import {IoArrowForward} from "react-icons/io5"
+import { IoArrowForward } from "react-icons/io5";
 import MasterHead from "../components/MasterHead.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const images = await Astro.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif}"
+);
+const posts = (await getCollection("blog"))
+  .sort(
+    (a: any, b: any) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  )
+  .map((post) => {
+    // Generate a slug from the title
+    const slug = post.data.title.toLowerCase().replace(/\s+/g, "-");
+    return {
+      ...post,
+      url: `/blog/${slug}`,
+    };
+  });
+console.log(posts);
 ---
 
 <!doctype html>
@@ -17,7 +37,7 @@ import MasterHead from "../components/MasterHead.astro";
   <Body>
     <Header title="{SITE_TITLE}" />
     <main class="max-w-full">
-		<MasterHead/>
+      <MasterHead />
       <Content>
         <section>
           <p class="mb-8 indent-4 text-justify p-4">
@@ -25,8 +45,35 @@ import MasterHead from "../components/MasterHead.astro";
             Frontend Engineering and UI/UX Design. I believe that great software
             isn't just functional—it's beautiful, intuitive, and creates
             meaningful experiences for users.
-			<a href="/about" class="inline-flex items-center gap-1 indent-1 text-orange-500 cursor-pointer">Press to know more <IoArrowForward/></a>
+            <a
+              href="/about"
+              class="inline-flex items-center gap-1 indent-1 text-orange-500 cursor-pointer"
+              >Press to know more <IoArrowForward /></a
+            >
           </p>
+        </section>
+        <section>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {
+              posts.map((post) => (
+                <li class="text-center mb-4">
+                  <a href={post.url}>
+                    {post.data.heroImage && (
+                      <Image
+                        class="border"
+                        src={post.data.heroImage}
+                        width={720}
+                        height={720 / 1.777}
+                        alt="Thumbnail"
+                      />
+                    )}
+                    <div class="mt-3 text-xl font-mplus">{post.data.title}</div>
+                    <div class="opacity-70">{post.data.description}</div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </section>
       </Content>
     </main>

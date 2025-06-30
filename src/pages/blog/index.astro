@@ -28,9 +28,12 @@ const posts = (await getCollection("blog")).sort(
         list-style-type: none;
         margin: 0;
         padding: 0;
+        max-width: 100%;
+		justify-items: center;
       }
       ul li {
         width: calc(50% - 1rem);
+        align-items: center;
       }
       ul li * {
         text-decoration: none;
@@ -89,15 +92,16 @@ const posts = (await getCollection("blog")).sort(
   </head>
   <Body>
     <Header />
-    <main>
+    <main class="max-w-full">
       <section>
-        <ul>
+        <ul class="justify-items-center">
           {
             posts.map((post) => (
               <li>
                 <a href={`/blog/${post.id}/`}>
                   {post.data.heroImage && (
                     <Image
+                      class="item-center"
                       width={720}
                       height={360}
                       src={post.data.heroImage}
