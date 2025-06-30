@@ -25,6 +25,7 @@ export default defineConfig({
       [rehypeAddClasse, {
         h1: 'text-3xl font-bold mb-4',
         h2: 'text-2xl font-semibold mt-8 mb-2',
+        h3: 'text-xl mt-4 mb-2',
         p: 'mb-4 leading-7 text-justify',
         a: 'text-blue-600 underline hover:text-blue-800',
         ul: 'list-disc list-inside mb-4',

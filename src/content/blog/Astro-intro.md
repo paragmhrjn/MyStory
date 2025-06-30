@@ -1,4 +1,3 @@
-
 ---
 title: "Astro Intro"
 description: "Building a Fast and Modern Blog with Astro"
@@ -57,3 +56,70 @@ Next, create a new project using the following command:
 
 ```bash
 npm create astro@latest
+
+```
+
+### Step 2: Set Up Markdown Blog Posts
+
+Astro makes it easy to integrate Markdown content into your site. To get started:
+- Inside your Astro project, navigate to the src/pages directory and create a new folder called posts.
+- Inside the posts folder, create a Markdown file for your first blog post. For example, create a file called first-post.md:
+```markdown
+---
+title: "My First Blog Post"
+date: "2025-06-30"
+description: "An introduction to my new blog."
+---
+# Welcome to My Blog
+
+This is the first post on my new blog powered by Astro! 
+Stay tuned for more updates and tutorials.
+```
+
+### Step 3: Create a Layout for Your Posts
+
+To give your posts a consistent look, you’ll want to create a layout. In the src/layouts directory, create a new file called PostLayout.astro:
+```script
+---
+import { markdown } from '@astro/markdown';
+
+const { title, date, description } = Astro.props;
+---
+
+<article>
+  <header>
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <small>Published on: {date}</small>
+  </header>
+  
+  <main>
+    {markdown(Astro.content)}
+  </main>
+</article>
+```
+### Step 4: Link Your Blog Post to the Layout
+
+Now, let’s tell Astro to use the PostLayout.astro layout for your blog post. Edit the first-post.md file and add the layout:
+
+```markdown
+---
+layout: "../layouts/PostLayout.astro"
+title: "My First Blog Post"
+date: "2025-06-30"
+description: "An introduction to my new blog."
+---
+
+# Welcome to My Blog
+
+This is the first post on my new blog powered by Astro! 
+Stay tuned for more updates and tutorials.
+```
+### Step 5: Build and Preview Your Blog
+
+To see your blog in action, run:
+```script
+npm run dev
+```
+
+This will start the development server. Open your browser and go to http://localhost:3000 to see your blog live.
