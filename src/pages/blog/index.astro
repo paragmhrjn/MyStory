@@ -30,7 +30,7 @@ const posts = (await getCollection("blog")).sort(
                 class={`${
                   index === 0
                     ? "col-span-2 mb-4 text-center"
-                    : "flex flex-col text-center m-2 col-span-2 md:col-span-1 sm:text-center "
+                    : "flex flex-col text-center m-2 col-span-2 md:col-span-1 sm:text-center"
                 }`}
               >
                 <a
@@ -39,7 +39,7 @@ const posts = (await getCollection("blog")).sort(
                 >
                   {post.data.heroImage && (
                     <Image
-                      class={`mb-8 border border-slate-300 dark:border-zinc-700 hover:scale-97 rounded-lg hover:shadow-lg ${index === 0 ? "w-full" : ""}`}
+                      class={`mb-8 border aligns-center border-slate-300 dark:border-zinc-700 object-cover hover:scale-97 w-full h-100 rounded-lg hover:shadow-lg ${index === 0 ? "w-full" : ""}`}
                       src={post.data.heroImage}
                       alt=""
                     />
