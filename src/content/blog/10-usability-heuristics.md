@@ -1,8 +1,8 @@
 ---
 title: "10 Usability Heuristics"
-description: "Jakob Nielsen’s 10 Usability Heuristics for User Interface Design are a set of general principles for designing user-friendly interfaces. These heuristics, developed in the 1990s, remain widely used in UX (user experience) design to evaluate and improve usability."
+description: "Jakob Nielsen’s 10 Usability Heuristics for User Interface Design are a set of general principles for designing user-friendly interfaces."
 pubDate: "Jul 1 2025"
-heroImage: ""
+heroImage: "../../assets/blog-placeholder-4.jpg"
 ---
 
 
